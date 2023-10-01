@@ -1,0 +1,170 @@
+@import "partials/mixins";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Avenir Next';
+    font-weight: 400;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+.header {
+    background-color: $primary-colors-1;
+    text-align: center;
+    padding-top: 2rem;
+
+    &__logo {
+        max-height: 2rem;
+        max-width: 12rem;
+    }
+
+    &__item {
+        padding: $padding-xs 0;
+        &.selected {
+            border-bottom: 5px solid $primary-colors-3;
+            .header__item-text{
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__items {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__item-text {
+        @include subheader;
+        font-weight: 400;
+        color: $primary-colors-3;
+        text-decoration: none;
+    }
+
+}
+
+.top {
+    background-image: url(../assets/images/hero-bio.jpg);
+    background-size: cover;
+    height: 42rem;
+    display: flex;
+    align-items: center;
+    padding: 0 $padding-s;
+
+    &__text {
+        @include page-header;
+        color: $primary-colors-3;
+    }
+}
+
+.main {
+    padding: 0 $padding-s;
+    &__header {
+        @include section-header;
+        color: $secondary-colors-1;
+        padding: 2.4rem 0 1.6rem 0;
+    }
+
+    &__photo {
+        width: 100%;
+    }
+
+    &__text {
+        @include subheader;
+        color: $secondary-colors-1;
+        padding-top: $padding-s;
+    }
+
+    &__text-top {
+        @include subheader;
+        color: $secondary-colors-1;
+        padding-top: $padding-xs;
+    }
+
+    &__text-bottom {
+        @include subheader;
+        color: $secondary-colors-1;
+        padding: $padding-m 0;
+    }
+
+    &__text-left {
+        @include body-copy;
+        color: $secondary-colors-1;
+    }
+
+    &__text-right {
+        @include body-copy;
+        color: $secondary-colors-1;
+        padding: $padding-s 0;
+    }
+}
+
+.gallery {
+    background-color: $secondary-colors-3;
+    padding: 0 $padding-s;
+
+    &__text {
+        @include section-header;
+        font-weight: 600;
+        color: $secondary-colors-1;
+        padding: $padding-m 0 $padding-s 0;
+    }
+
+    &__photo {
+        width: 100%;
+        padding-bottom: $padding-s;
+    }
+}
+
+.footer {
+    background-color: $primary-colors-1;
+    padding: 0 $padding-s;
+
+    &__header-left {
+        @include section-header;
+        font-weight: 600;
+        color: $primary-colors-3;
+        padding: 2.4rem 0 1.6rem 0;
+    }
+
+    &__container-top {
+        @include footer-copy;
+        font-weight: 500;
+        color: $primary-colors-3;
+    }
+
+    &__container-middle {
+        @include footer-copy;
+        color: $primary-colors-3;
+        padding: $padding-s 0;
+    }
+
+    &__container-bottom {
+        @include footer-copy;
+        color: $primary-colors-3;
+        padding-bottom: $padding-s;
+    }
+
+    &__bottom {
+        @include footer-copy;
+        color: $primary-colors-3;
+        padding: $padding-s 0;
+    }
+
+    &__icons {
+        padding-bottom: $padding-s;
+    }
+
+    &__icon {
+        padding-right: 3rem;
+    }
+
+    &__logo {
+        padding-top: $padding-xl;
+    }
+}
