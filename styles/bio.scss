@@ -25,11 +25,20 @@ html {
 
     &__item {
         padding: $padding-xs 0;
+        
         &.selected {
             border-bottom: 5px solid $primary-colors-3;
             .header__item-text{
                 font-weight: 600;
+                color: $primary-colors-3;
             }
+        }
+        &:hover {
+            .header__item-text {
+                color: $primary-colors-3;
+                font-weight: 400;
+            }
+            border-bottom: 5px solid $primary-colors-3;
         }
     }
 
@@ -42,7 +51,7 @@ html {
     &__item-text {
         @include subheader;
         font-weight: 400;
-        color: $primary-colors-3;
+        color: $secondary-colors-2;
         text-decoration: none;
     }
 
