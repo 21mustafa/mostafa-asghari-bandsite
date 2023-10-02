@@ -4,10 +4,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Avenir Next';
+    font-family: "Avenir Next";
     font-weight: 400;
 }
-
 
 html {
     font-size: 62.5%;
@@ -18,6 +17,22 @@ html {
     text-align: center;
     padding-top: 2rem;
 
+    @include tablet {
+        display: flex;
+        height: 10rem;
+        align-items: baseline;
+        padding: 0 $padding-l;
+        padding-top: $padding-m;
+    }
+
+    @include desktop {
+        display: flex;
+        height: 12rem;
+        align-items: baseline;
+        padding: 0rem 12rem;
+        padding-top: 3.6rem;
+    }
+
     &__logo {
         max-height: 2rem;
         max-width: 12rem;
@@ -25,10 +40,10 @@ html {
 
     &__item {
         padding: $padding-xs 0;
-        
+
         &.selected {
             border-bottom: 5px solid $primary-colors-3;
-            .header__item-text{
+            .header__item-text {
                 font-weight: 600;
                 color: $primary-colors-3;
             }
@@ -46,6 +61,13 @@ html {
         list-style-type: none;
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+        @include tablet {
+            grid-template-columns: auto auto;
+            grid-gap: 4.8rem;
+            padding-left: $padding-xl;
+            height: 100%;
+        }
     }
 
     &__item-text {
@@ -55,6 +77,11 @@ html {
         text-decoration: none;
     }
 
+    &__nav {
+        @include tablet {
+            height: 100%;
+        }
+    }
 }
 
 .top {
@@ -65,6 +92,15 @@ html {
     align-items: center;
     padding: 0 $padding-s;
 
+    @include tablet {
+        padding: 0 $padding-l;
+    }
+
+    @include desktop {
+        padding: 0 12rem;
+        height: 75vh;
+    }
+
     &__text {
         @include page-header;
         color: $primary-colors-3;
@@ -73,10 +109,41 @@ html {
 
 .main {
     padding: 0 $padding-s;
+    @include tablet {
+        padding: $padding-xl $padding-l;
+    }
+
+    @include desktop {
+        padding: 0rem 12rem;
+        padding-top: $padding-xl;
+    }
+
+    &__text-container {
+        @include tablet {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            grid-column-gap: 2.4rem;
+        }
+    }
+
+    &__content {
+        @include tablet {
+            padding: $padding-xl $padding-l;
+        }
+
+        @include desktop {
+            padding: $padding-xl 12rem;
+        }
+    }
     &__header {
         @include section-header;
         color: $secondary-colors-1;
         padding: 2.4rem 0 1.6rem 0;
+
+        @include tablet {
+            padding: 0;
+        }
     }
 
     &__photo {
@@ -104,24 +171,53 @@ html {
     &__text-left {
         @include body-copy;
         color: $secondary-colors-1;
+
+        @include desktop {
+            font-size: 1.8rem;
+            line-height: 2.5rem;
+        }
     }
 
     &__text-right {
         @include body-copy;
         color: $secondary-colors-1;
         padding: $padding-s 0;
+
+        @include desktop {
+            font-size: 1.8rem;
+            line-height: 2.5rem;
+        }
     }
 }
 
 .gallery {
     background-color: $secondary-colors-3;
     padding: 0 $padding-s;
+    @include tablet {
+        padding: $padding-xl $padding-l;
+    }
+
+    @include desktop {
+        padding: $padding-l 12rem;
+    }
+
+    &__photos {
+        @include tablet {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 2.4rem;
+        }
+    }
 
     &__text {
         @include section-header;
         font-weight: 600;
         color: $secondary-colors-1;
         padding: $padding-m 0 $padding-s 0;
+
+        @include desktop {
+            padding-bottom: $padding-l;
+        }
     }
 
     &__photo {
@@ -133,6 +229,33 @@ html {
 .footer {
     background-color: $primary-colors-1;
     padding: 0 $padding-s;
+
+    @include desktop {
+        padding: 0 8.5rem;
+    }
+
+    &__content {
+        @include tablet {
+            display: grid;
+            grid-template-columns: 1fr 1fr 0fr;
+            align-items: baseline;
+            padding: $padding-xl $padding-l;
+        }
+
+        @include desktop {
+            grid-template-columns: 0.6fr 1fr 0fr;
+        }
+    }
+
+    &__container {
+        @include tablet {
+            padding: 0 $padding-l;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 2.4rem;
+            align-items: center;
+        }
+    }
 
     &__header-left {
         @include section-header;
@@ -163,6 +286,9 @@ html {
         @include footer-copy;
         color: $primary-colors-3;
         padding: $padding-s 0;
+        @include tablet {
+            padding: $padding-xl $padding-l;
+        }
     }
 
     &__icons {
@@ -171,9 +297,26 @@ html {
 
     &__icon {
         padding-right: 3rem;
+        @include tablet {
+            transform: scale(1.5);
+        }
     }
 
     &__logo {
         padding-top: $padding-xl;
+    }
+
+    &__logo-mobile {
+        display: block;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__logo-tablet {
+        display: none;
+        @include tablet {
+            display: block;
+        }
     }
 }
