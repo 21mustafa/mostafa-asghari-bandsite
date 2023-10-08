@@ -452,17 +452,27 @@ body {
 }
 
 .error {
-  border: 2px solid red;
+  border: 2px solid #d22d2d;
 }
 
 .comment {
   padding: 0 1.6rem;
 }
+@media screen and (min-width: 768px) {
+  .comment {
+    padding: 4.8rem 3.6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comment {
+    padding: 0rem 12rem;
+    padding-top: 4.8rem;
+  }
+}
 .comment__text {
   font-size: 2.4rem;
   line-height: 3.2rem;
   font-weight: 700;
-  font-weight: 600;
   color: #000000;
   padding: 2.4rem 0 1.6rem 0;
 }
@@ -472,9 +482,9 @@ body {
     line-height: 4.4rem;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .comment__text {
-    padding-bottom: 3.6rem;
+    padding: 0;
   }
 }
 .comment__form {
@@ -495,6 +505,23 @@ body {
   border: none;
   width: 100%;
   margin-bottom: 2rem;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .comment__button {
+    width: 15rem;
+    padding: 0 3.2rem;
+    position: relative;
+    left: calc(100% - 15rem);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comment__button {
+    width: 15rem;
+    padding: 0 3.2rem;
+    position: relative;
+    left: calc(100% - 15rem);
+  }
 }
 .comment__button:hover {
   background-color: #000000;
@@ -534,20 +561,34 @@ body {
 }
 .comment__container {
   display: flex;
-  border-bottom: 1px solid #E1E1E1;
+}
+@media screen and (min-width: 768px) {
+  .comment__container {
+    padding: 3.6rem 3.6rem 0 3.6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comment__container {
+    padding: 4.8rem 20rem 0 20rem;
+  }
 }
 .comment-photo {
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 50%;
   background-color: #E1E1E1;
+  flex-shrink: 0;
+  margin-right: 2rem;
 }
 .comment-element {
-  display: grid;
-  grid-template-columns: 1fr 5fr;
   margin: 1rem 0;
-  border-bottom: 1px solid #E1E1E1;
+  border-bottom: 1px solid #e1e1e1;
   padding-bottom: 1rem;
+  display: flex;
+}
+.comment-element:first-of-type {
+  border-top: 1px solid #e1e1e1;
+  padding-top: 1rem;
 }
 .comment-header {
   display: flex;
@@ -564,4 +605,14 @@ body {
 .comment-paragraph {
   font-size: 1.5rem;
   padding-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .comment__section {
+    padding: 0 3.6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comment__section {
+    padding: 0 20rem 3.6rem 20rem;
+  }
 }/*# sourceMappingURL=bio.css.map */

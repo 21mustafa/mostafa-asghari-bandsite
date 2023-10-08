@@ -326,19 +326,26 @@ body {
 }
 
 .error {
-    border: 2px solid red;
+    border: 2px solid #d22d2d;
 }
 
 .comment {
     padding: 0 $padding-s;
+    @include tablet {
+        padding: $padding-xl $padding-l;
+    }
+
+    @include desktop {
+        padding: 0rem 12rem;
+        padding-top: $padding-xl;
+    }
     &__text {
         @include section-header;
-        font-weight: 600;
         color: $secondary-colors-1;
-        padding: $padding-m 0 $padding-s 0;
+        padding: 2.4rem 0 1.6rem 0;
 
-        @include desktop {
-            padding-bottom: $padding-l;
+        @include tablet {
+            padding: 0;
         }
     }
 
@@ -361,6 +368,19 @@ body {
         border: none;
         width: 100%;
         margin-bottom: 2rem;
+        cursor: pointer;
+        @include tablet {
+            width: 15rem;
+            padding: 0 3.2rem;
+            position: relative;
+            left: calc(100% - 15rem);
+        }
+        @include desktop {
+            width: 15rem;
+            padding: 0 3.2rem;
+            position: relative;
+            left: calc(100% - 15rem);
+        }
 
         &:hover {
             background-color: $secondary-colors-1;
@@ -407,7 +427,14 @@ body {
 
     &__container {
         display: flex;
-        border-bottom: 1px solid $secondary-colors-2;
+
+        @include tablet {
+            padding: 3.6rem 3.6rem 0 3.6rem;
+        }
+
+        @include desktop {
+            padding: 4.8rem 20rem 0 20rem;
+        }
     }
 
     &-photo {
@@ -415,14 +442,19 @@ body {
         height: 3.6rem;
         border-radius: 50%;
         background-color: $secondary-colors-2;
+        flex-shrink: 0;
+        margin-right: 2rem;
     }
 
     &-element {
-        display: grid;
-        grid-template-columns: 1fr 5fr;
         margin: 1rem 0;
-        border-bottom: 1px solid $secondary-colors-2;
+        border-bottom: 1px solid #e1e1e1;
         padding-bottom: 1rem;
+        display: flex;
+        &:first-of-type {
+            border-top: 1px solid #e1e1e1;
+            padding-top: 1rem;
+        }
     }
 
     &-header {
@@ -443,5 +475,14 @@ body {
     &-paragraph {
         font-size: 1.5rem;
         padding-top: 1rem;
+    }
+
+    &__section {
+        @include tablet {
+            padding: 0 3.6rem;
+        }
+        @include desktop {
+            padding: 0 20rem 3.6rem 20rem;
+        }
     }
 }
