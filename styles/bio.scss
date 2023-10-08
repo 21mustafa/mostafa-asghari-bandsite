@@ -1,15 +1,19 @@
-@import "partials/mixins";
+@use "partials/fonts" as *;
+@use "partials/mixins" as *;
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Avenir Next";
-    font-weight: 400;
 }
 
 html {
     font-size: 62.5%;
+}
+
+body {
+    font-family: "AvenirNext LT Pro", sans-serif;
+    font-weight: 400;
 }
 
 .header {
@@ -85,7 +89,7 @@ html {
 }
 
 .top {
-    background-image: url(../assets/images/hero-bio.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/hero-bio.jpg);
     background-size: cover;
     height: 42rem;
     display: flex;
@@ -318,5 +322,126 @@ html {
         @include tablet {
             display: block;
         }
+    }
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.comment {
+    padding: 0 $padding-s;
+    &__text {
+        @include section-header;
+        font-weight: 600;
+        color: $secondary-colors-1;
+        padding: $padding-m 0 $padding-s 0;
+
+        @include desktop {
+            padding-bottom: $padding-l;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 2rem;
+        width: 100%;
+    }
+
+    &__button {
+        background-color: $primary-colors-1;
+        color: $primary-colors-3;
+        padding: 0rem 3.2rem;
+        border-radius: 4px;
+        font-weight: 600;
+        height: 4rem;
+        outline: none;
+        border: none;
+        width: 100%;
+        margin-bottom: 2rem;
+
+        &:hover {
+            background-color: $secondary-colors-1;
+        }
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        width: 100%;
+        min-height: 3.6rem;
+        border-radius: 4px;
+        padding: 1.2rem;
+        margin-top: 0.4rem;
+        border: 1px solid $secondary-colors-2;
+        background-color: $secondary-colors-3;
+        font-family: "AvenirNext LT Pro", sans-serif;
+        font-size: 1.5rem;
+
+        &:active {
+            border: 1px solid $secondary-colors-1;
+            outline: $secondary-colors-1;
+        }
+    }
+
+    &__photo {
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+        margin-top: 2.4rem;
+    }
+
+    &__label-text {
+        color: $primary-colors-2;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    &__container {
+        display: flex;
+        border-bottom: 1px solid $secondary-colors-2;
+    }
+
+    &-photo {
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+        background-color: $secondary-colors-2;
+    }
+
+    &-element {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        margin: 1rem 0;
+        border-bottom: 1px solid $secondary-colors-2;
+        padding-bottom: 1rem;
+    }
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-name {
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+
+    &-date {
+        font-size: 1.5rem;
+        color: $primary-colors-2;
+    }
+
+    &-paragraph {
+        font-size: 1.5rem;
+        padding-top: 1rem;
     }
 }
