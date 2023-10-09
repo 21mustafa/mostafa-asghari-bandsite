@@ -1,0 +1,220 @@
+@use "partials/fonts" as *;
+@use "partials/mixins" as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "AvenirNext LT Pro", sans-serif;
+    font-weight: 400;
+}
+
+.header {
+    background-color: $primary-colors-1;
+    text-align: center;
+    padding-top: 2rem;
+
+    @include tablet {
+        display: flex;
+        height: 10rem;
+        align-items: baseline;
+        padding: 0 $padding-l;
+        padding-top: $padding-m;
+    }
+
+    @include desktop {
+        display: flex;
+        height: 12rem;
+        align-items: baseline;
+        padding: 0rem 12rem;
+        padding-top: 3.6rem;
+    }
+
+    &__logo {
+        max-height: 2rem;
+        max-width: 12rem;
+    }
+
+    &__item {
+        padding: $padding-xs 0;
+
+        &.selected {
+            border-bottom: 5px solid $primary-colors-3;
+            .header__item-text {
+                font-weight: 600;
+                color: $primary-colors-3;
+            }
+        }
+        &:hover {
+            .header__item-text {
+                color: $primary-colors-3;
+                font-weight: 400;
+            }
+            border-bottom: 5px solid $primary-colors-3;
+        }
+    }
+
+    &__items {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        @include tablet {
+            grid-template-columns: auto auto;
+            grid-gap: 4.8rem;
+            padding-left: $padding-xl;
+            height: 100%;
+        }
+    }
+
+    &__item-text {
+        @include subheader;
+        font-weight: 400;
+        color: $secondary-colors-2;
+        text-decoration: none;
+    }
+
+    &__nav {
+        @include tablet {
+            height: 100%;
+        }
+    }
+}
+
+.top {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/hero-shows.jpg);
+    background-size: cover;
+    height: 42rem;
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 $padding-s;
+
+    @include tablet {
+        padding: 0 $padding-l;
+    }
+
+    @include desktop {
+        padding: 0 12rem;
+        height: 75vh;
+    }
+
+    &__text {
+        font-size: 2rem;
+        padding: 4rem 0;
+        @include page-header;
+        color: $primary-colors-3;
+    }
+
+    &__head {
+        color: $primary-colors-3;
+        font-size: 2rem;
+        padding-top: 5rem;
+    }
+
+    &__iframe {
+        width: 100%;
+    }
+}
+
+.footer {
+    background-color: $primary-colors-1;
+    padding: 0 $padding-s;
+
+    @include desktop {
+        padding: 0 8.5rem;
+    }
+
+    &__content {
+        @include tablet {
+            display: grid;
+            grid-template-columns: 1fr 1fr 0fr;
+            align-items: baseline;
+            padding: $padding-xl $padding-l;
+        }
+
+        @include desktop {
+            grid-template-columns: 0.6fr 1fr 0fr;
+        }
+    }
+
+    &__container {
+        @include tablet {
+            padding: 0 $padding-l;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 2.4rem;
+            align-items: center;
+        }
+    }
+
+    &__header-left {
+        @include section-header;
+        font-weight: 600;
+        color: $primary-colors-3;
+        padding: 2.4rem 0 1.6rem 0;
+    }
+
+    &__container-top {
+        @include footer-copy;
+        font-weight: 500;
+        color: $primary-colors-3;
+    }
+
+    &__container-middle {
+        @include footer-copy;
+        color: $primary-colors-3;
+        padding: $padding-s 0;
+    }
+
+    &__container-bottom {
+        @include footer-copy;
+        color: $primary-colors-3;
+        padding-bottom: $padding-s;
+    }
+
+    &__bottom {
+        @include footer-copy;
+        color: $primary-colors-3;
+        padding: $padding-s 0;
+        @include tablet {
+            padding: $padding-xl $padding-l;
+        }
+    }
+
+    &__icons {
+        padding-bottom: $padding-s;
+    }
+
+    &__icon {
+        padding-right: 3rem;
+        @include tablet {
+            transform: scale(1.5);
+        }
+    }
+
+    &__logo {
+        padding-top: $padding-xl;
+    }
+
+    &__logo-mobile {
+        display: block;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__logo-tablet {
+        display: none;
+        @include tablet {
+            display: block;
+        }
+    }
+}
