@@ -325,10 +325,6 @@ body {
     }
 }
 
-.error {
-    border: 2px solid #d22d2d;
-}
-
 .comment {
     padding: 0 $padding-s;
     @include tablet {
@@ -409,6 +405,10 @@ body {
         &:active {
             border: 1px solid $secondary-colors-1;
             outline: $secondary-colors-1;
+        }
+
+        &.error {
+            border: 2px solid #d22d2d;
         }
     }
 

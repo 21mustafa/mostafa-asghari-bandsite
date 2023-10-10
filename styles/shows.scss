@@ -99,11 +99,14 @@ body {
 
     @include tablet {
         padding: 0 $padding-l;
+        height: 50vh;
     }
 
     @include desktop {
         padding: 0 12rem;
-        height: 75vh;
+        height: 85vh;
+        display: flex;
+        justify-content: center;
     }
 
     &__text {
@@ -117,10 +120,32 @@ body {
         color: $primary-colors-3;
         font-size: 2rem;
         padding-top: 5rem;
+
+        @include tablet {
+            font-size: 3rem;
+        }
+
+        @include desktop {
+            font-size: 4rem;
+        }
+    }
+
+    &__header {
+        @include desktop {
+            display: flex;
+        }
     }
 
     &__iframe {
         width: 100%;
+
+        @include tablet {
+            width: 65%;
+        }
+
+        @include desktop {
+            margin-top: 4rem;
+        }
     }
 }
 
@@ -215,6 +240,124 @@ body {
         display: none;
         @include tablet {
             display: block;
+        }
+    }
+}
+
+.shows {
+    @include desktop {
+        display: flex;
+    }
+}
+
+.show {
+    @include desktop {
+        margin-top: 4.6rem;
+    }
+    &__button {
+        background-color: $primary-colors-1;
+        color: $primary-colors-3;
+        width: -webkit-fill-available;
+        border-radius: 4px;
+        font-weight: 600;
+        height: 4rem;
+        outline: none;
+        border: none;
+        margin: 1.6rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        @include tablet {
+            width: 20rem;
+            padding: 0 3.2rem;
+            position: relative;
+        }
+        @include desktop {
+            width: 20rem;
+            padding: 0 3.2rem;
+            position: relative;
+        }
+
+        &:hover {
+            background-color: $secondary-colors-1;
+        }
+    }
+
+    &__header {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        font-weight: 700;
+        color: #000000;
+        padding: 2.4rem 0 1rem 1.6rem;
+
+        @include tablet {
+            padding: 3.6rem;
+            font-size: 4.2rem;
+        }
+    }
+
+    &__element-label {
+        color: $primary-colors-2;
+        font-weight: 500;
+        font-size: 1.6rem;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__element {
+        border-bottom: 1px solid $secondary-colors-2;
+        @include tablet {
+            display: flex;
+            align-items: center;
+            padding: 0 2.4rem;
+        }
+    }
+
+    &__container {
+        padding: 0 1.6rem;
+        @include tablet {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    &__element-label {
+        padding: 2rem 0 0.6rem 0;
+    }
+
+    &__element-value--date {
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: #000000;
+    }
+
+    &__element-value {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #000000;
+    }
+
+    &__table-item {
+        color: $primary-colors-2;
+        font-weight: 500;
+        font-size: 1.6rem;
+    }
+
+    &__table-header {
+        display: none;
+        @include tablet {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.8fr;
+            padding-left: 3.6rem;
+        }
+    }
+
+    &__date,
+    &__venue,
+    &__location {
+        @include tablet {
+            width: 20rem;
         }
     }
 }

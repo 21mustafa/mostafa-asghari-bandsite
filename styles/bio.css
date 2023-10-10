@@ -451,10 +451,6 @@ body {
   }
 }
 
-.error {
-  border: 2px solid #d22d2d;
-}
-
 .comment {
   padding: 0 1.6rem;
 }
@@ -547,6 +543,9 @@ body {
 .comment__input:active {
   border: 1px solid #000000;
   outline: #000000;
+}
+.comment__input.error {
+  border: 2px solid #d22d2d;
 }
 .comment__photo {
   width: 3.6rem;
