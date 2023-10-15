@@ -485,4 +485,39 @@ body {
             padding: 0 20rem 3.6rem 20rem;
         }
     }
+
+    &-content {
+        flex-grow: 2;
+    }
+
+    &-element__like {
+        display: flex;
+        justify-content: space-evenly;
+
+        i.fa-solid.fa-thumbs-up {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-element__buttons {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+    }
+
+    &-element__button {
+        margin-bottom: 0.5rem;
+        background-color: #323232;
+        color: #ffffff;
+        border-radius: 4px;
+        font-weight: 500;
+        outline: none;
+        border: none;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    &-element__number {
+        font-size: 1.5rem;
+    }
 }

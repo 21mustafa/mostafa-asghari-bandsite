@@ -2,7 +2,7 @@ import { BandSiteAPI } from "./band-site-api.js";
 const bandSiteAPI = new BandSiteAPI("0323f365-7506-4a0f-bddf-3ad2107eb92f");
 
 bandSiteAPI.getComments().then((response) => {
-  createStaticComments(response);
+  createComments(response);
 });
 
 const form = document.getElementById("comment-form");
@@ -31,7 +31,7 @@ const rerender = async () => {
   commentSection.innerHTML = "";
 
   const updatedComments = await bandSiteAPI.getComments();
-  createStaticComments(updatedComments);
+  createComments(updatedComments);
 };
 
 function isValid(input) {
@@ -42,11 +42,12 @@ function isValid(input) {
   return true;
 }
 
-function createStaticComments(comments) {
-  const elements = [];
+function createComments(comments) {
+  let elements = "";
   for (let dataElement of comments) {
-    elements.push(Comment(dataElement));
+    elements += Comment(dataElement);
   }
+
   commentSection.innerHTML = elements;
   addEventListeners(comments);
 }
@@ -80,7 +81,7 @@ const Comment = (comment) => {
   return `
     <div class="comment-element" id="${comment.id}">
       <div class="comment-photo"> </div>
-      <div>
+      <div class="comment-content">
         <div class="comment-header">
           <div class="comment-name">
             ${comment.name}
@@ -94,9 +95,22 @@ const Comment = (comment) => {
           ${comment.comment}
         </p>
       </div>
-      <div id="${comment.id}_likeCount">${comment.likes}</div>
-      <button id="${comment.id}_delete">DELETE</button>
-      <button id="${comment.id}_like">LIKE</button>
+      
+      <div class="comment-element__buttons"> 
+
+        <button class="comment-element__button" id="${
+          comment.id
+        }_delete">DELETE</button>
+        <button class="comment-element__button" id="${
+          comment.id
+        }_like">LIKE</button>
+        <div class="comment-element__like">
+          <i class="fa-solid fa-thumbs-up"></i>
+          <div class="comment-element__number" id="${comment.id}_likeCount">
+            ${comment.likes}
+          </div>
+        </div>
+      </div>
     </div>
   `;
 };

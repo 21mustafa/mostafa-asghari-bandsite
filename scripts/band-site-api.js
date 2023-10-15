@@ -15,7 +15,9 @@ export class BandSiteAPI {
     const response = await axios.get(
       `${this.baseURL}/comments?api_key=${this.apiKey}`
     );
-    return response.data;
+    return response.data.sort((firstComment, secondComment) => {
+      return secondComment.timestamp - firstComment.timestamp;
+    });
   }
 
   async deleteComment(id) {
